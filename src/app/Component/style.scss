@@ -1,0 +1,53 @@
+.task_content {
+  margin-top: 50px;
+  .task_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px 15px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    .task_add {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .fav_icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f6f6f6;
+        border-radius: 5px;
+        padding: 4px;
+      }
+      .type {
+        background-color: #f6f6f6;
+      }
+    }
+    .task_time {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .time {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f6f6f6;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        gap: 5px;
+      }
+      .dot_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f6f6f6;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}

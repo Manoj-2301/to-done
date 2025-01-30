@@ -1,0 +1,33 @@
+.add_task{
+    position: fixed;
+    bottom:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    border-radius: 50px;
+    .icons{
+        display: flex;
+        gap: 10px;
+        padding-right: 15px;
+    }
+    .add_title{
+        padding-left: 10px;
+        display:flex;
+        gap: 20px;
+    }
+    .command-icon{
+        background-color: #3e3e3e;
+        padding: 10px;
+        border-radius: 15px;
+    }
+    .command-ico{
+        background-color: #3e3e3e;
+        padding: 15px;
+        border-radius: 15px;
+    }
+}
