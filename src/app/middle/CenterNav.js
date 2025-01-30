@@ -13,6 +13,7 @@ const CenterNav = () => {
     {
       name: "Jogging",
       emoji: "💪",
+      extra:"",
       time: {
         start: "06:00",
         end: "07:30",

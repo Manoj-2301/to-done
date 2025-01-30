@@ -4,16 +4,18 @@ import { useState } from "react"
 const form = ({setTasks, tasks}) => {
     const [text, setText] = useState('');
     const [emoji, setEmoji] = useState('');
+    const[extra, setExtra] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
 
     const submit = (event) => {
         event.preventDefault();
 
-        if (text && emoji && startTime && endTime) {
+        if (text && emoji && extra && startTime && endTime) {
             const newTask = {
               name: text,
               emoji: emoji,
+              extra:extra,
               time: {
                 start: startTime,
                 end: endTime,
@@ -25,6 +27,7 @@ const form = ({setTasks, tasks}) => {
 
           setText("");
       setEmoji("");
+      setExtra("");
       setStartTime("");
       setEndTime("");
         }
@@ -65,6 +68,13 @@ const form = ({setTasks, tasks}) => {
                         />
                     </div>
                 </div>
+                <div>
+                    <label>Enter purpose</label>
+                <input type="text" placeholder="purpose"
+                value={extra}
+                onChange={(e) => setExtra(e.target.value)}/>
+                </div>
+
 
                 <button type="submit" className="btn_form">
                     ADD

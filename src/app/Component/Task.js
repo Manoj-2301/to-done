@@ -13,7 +13,7 @@ const Task = ({tasks}) => {
             <input type="checkbox" className="check" />
             <p>{task.name}</p>
             <p className="fav_icon">{task.emoji}</p>
-            <p className="type">extra</p>
+            <p className="type">{task.extra}</p>
           </div>
           <div className="task_time">
             <p className="time">
