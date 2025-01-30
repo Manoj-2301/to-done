@@ -11,6 +11,7 @@ import { useState } from "react";
 const CenterNav = () => {
   const[tasks, setTasks] =useState([
     {
+      id:1,
       name: "Jogging",
       emoji: "💪",
       extra:"",

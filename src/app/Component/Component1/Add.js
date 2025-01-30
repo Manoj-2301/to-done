@@ -26,13 +26,18 @@ const Add = ({setTasks,tasks}) => {
             <Image
               src="/command1.png"
               alt="command icon"
-              width={22}
-              height={22}
+              width={16}
+              height={16}
+
             />
           </div>
           <div className="command-ico">N</div>
         </div>
       </div>
+      <div className="last_icon">
+        p
+      </div>
+
 
 
       {isFormOpen && (

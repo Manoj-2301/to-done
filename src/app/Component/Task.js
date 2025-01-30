@@ -4,7 +4,6 @@ import { IoTimeOutline } from "react-icons/io5";
 
 const Task = ({tasks}) => {
 
-
   return (
     <div className="task_content" >
       {tasks.map((task, index) => (
