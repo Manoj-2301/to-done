@@ -14,6 +14,7 @@ const Add = ({ setTasks, tasks }) => {
     setIsFormOpen((addform) => !addform);
   };
 
+
   return (
     <div>
       <div className="add_task" >
@@ -37,10 +38,11 @@ const Add = ({ setTasks, tasks }) => {
       </div>
       <div className="last_icon">
         <FaRegFileLines />
+
       </div>
       {isFormOpen && (
         <div className="form">
-          <Form setTasks={setTasks} tasks={tasks}  />
+          <Form setTasks={setTasks} tasks={tasks} setIsFormOpen={setIsFormOpen}  />
         </div>
       )}
     </div>

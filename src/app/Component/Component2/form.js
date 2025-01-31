@@ -2,19 +2,28 @@ import "./style.scss";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-const form = ({ setTasks, tasks }) => {
+const form = ({ setTasks, tasks, setIsFormOpen }) => {
   const schema = yup.object().shape({
-    Task: yup.string().required(),
+    task: yup.string().required(),
     emoji:yup.string(),
     start:yup.string(),
-end:yup.string(),
-extra:yup.string(),
+    end:yup.string(),
+    extra:yup.string(),
   });
   const { register, handleSubmit } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = (newData) => {
+  const onSubmit =(newData) => {
+    // const lastId = tasks.length > 0 ? tasks[tasks.length - 1].id : 0;
+    // const taskWithId = {
+    //   id: lastId+1,
+    //   ...newData,
+    // };
+    const id = Math.floor(Math.random()*1000)+1
+    const newTask ={id, ...newData}
+
     console.log(newData);
-    setTasks([...tasks, newData]);
+    setTasks([...tasks, newTask]);
+    setIsFormOpen(false)
   };
 
   return (
@@ -23,7 +32,7 @@ extra:yup.string(),
         <div className="task-field">
           <div className="task_entery">
             <label>Enter Task</label>
-            <input type="text" placeholder="Enter Task" {...register("Task")} />
+            <input type="text" placeholder="Enter Task" {...register("task")} />
           </div>
           <div className="task_entery">
             <label>Enter emoji</label>
