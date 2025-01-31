@@ -1,57 +1,36 @@
-"use client";
 import "./style.scss";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 const form = ({ setTasks, tasks }) => {
-  const [text, setText] = useState("");
-  const [emoji, setEmoji] = useState("");
-  const [extra, setExtra] = useState("");
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
+  const schema = yup.object().shape({
+    Task: yup.string().required(),
+    emoji:yup.string(),
+    start:yup.string(),
+end:yup.string(),
+extra:yup.string(),
+  });
+  const { register, handleSubmit } = useForm({ resolver: yupResolver(schema) });
 
-  const submit = (event) => {
-    event.preventDefault();
-
-    if (text && emoji && extra && startTime && endTime) {
-      const newTask = {
-        name: text ,
-        emoji: emoji ,
-        extra: extra ,
-        time: {
-          start: startTime ,
-          end: endTime ,
-        },
-      };
-
-      setTasks([...tasks, newTask]);
-
-      setText("");
-      setEmoji("");
-      setExtra("");
-      setStartTime("");
-      setEndTime("");
-    }
+  const onSubmit = (newData) => {
+    console.log(newData);
+    setTasks([...tasks, newData]);
   };
 
   return (
     <div>
-      <form className="form_field" onSubmit={submit}>
+      <form className="form_field" onSubmit={handleSubmit(onSubmit)}>
         <div className="task-field">
           <div className="task_entery">
             <label>Enter Task</label>
-            <input
-              type="text"
-              placeholder="Enter Task"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-            />
+            <input type="text" placeholder="Enter Task" {...register("Task")} />
           </div>
           <div className="task_entery">
             <label>Enter emoji</label>
             <input
               type="text"
               placeholder="add emoji/work"
-              value={emoji}
-              onChange={(e) => setEmoji(e.target.value)}
+              {...register("emoji")}
             />
           </div>
         </div>
@@ -61,8 +40,7 @@ const form = ({ setTasks, tasks }) => {
             <input
               type="time"
               placeholder="add emoji/work"
-              value={startTime}
-              onChange={(e) => setStartTime(e.target.value)}
+              {...register("start")}
             />
           </div>
           <div className="task_entery">
@@ -70,19 +48,13 @@ const form = ({ setTasks, tasks }) => {
             <input
               type="time"
               placeholder="add emoji/work"
-              value={endTime}
-              onChange={(e) => setEndTime(e.target.value)}
+              {...register("end")}
             />
           </div>
         </div>
         <div className="task_entery">
           <label>Enter purpose</label>
-          <input
-            type="text"
-            placeholder="purpose"
-            value={extra}
-            onChange={(e) => setExtra(e.target.value)}
-          />
+          <input type="text" placeholder="purpose" {...register("extra")} />
         </div>
 
         <button type="submit" className="btn_form">

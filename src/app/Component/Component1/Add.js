@@ -1,11 +1,13 @@
-"use client"
+"use client";
 import { useState } from "react";
 import Image from "next/image"; // Correct import
 import { FaPlus } from "react-icons/fa";
 import Form from "../Component2/form";
+import { FaRegFileLines } from "react-icons/fa6";
+
 import "./style.scss";
 
-const Add = ({setTasks,tasks}) => {
+const Add = ({ setTasks, tasks }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const clickToOpen = () => {
@@ -14,12 +16,12 @@ const Add = ({setTasks,tasks}) => {
 
   return (
     <div>
-      <div className="add_task" onClick={clickToOpen}>
-        <div className="add_title">
+      <div className="add_task" >
+        <div className="add_title" onClick={clickToOpen}>
           <p>
             <FaPlus />
           </p>
-          <p>Create new Task</p>
+          <p  >Create new Task</p>
         </div>
         <div className="icons">
           <div className="command-icon">
@@ -28,21 +30,17 @@ const Add = ({setTasks,tasks}) => {
               alt="command icon"
               width={16}
               height={16}
-
             />
           </div>
           <div className="command-ico">N</div>
         </div>
       </div>
       <div className="last_icon">
-        p
+        <FaRegFileLines />
       </div>
-
-
-
       {isFormOpen && (
-        <div>
-          <Form setTasks={setTasks} tasks={tasks}/>
+        <div className="form">
+          <Form setTasks={setTasks} tasks={tasks}  />
         </div>
       )}
     </div>

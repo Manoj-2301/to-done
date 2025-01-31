@@ -12,15 +12,16 @@ const CenterNav = () => {
   const[tasks, setTasks] =useState([
     {
       id:1,
-      name: "Jogging",
+      Task: "Jogging",
       emoji: "💪",
       extra:"",
-      time: {
+
         start: "06:00",
         end: "07:30",
-      },
+
     }
   ])
+  console.log(tasks)
 
   return (
     <div className="main_content">
@@ -42,7 +43,7 @@ const CenterNav = () => {
             </div>
           </div>
         </div>
-        <Task tasks={tasks}  />
+        <Task tasks={tasks} setTasks={setTasks} />
       </div>
       <Add setTasks={setTasks} tasks={tasks}/>
     </div>
