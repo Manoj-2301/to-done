@@ -1,5 +1,4 @@
 "use client"
-
 import "./style.scss";
 import { FaChevronDown } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -15,32 +14,28 @@ const CenterNav = () => {
       task: "Jogging",
       emoji: "💪",
       extra:"",
-
-        start: "06:00",
-        end: "07:30",
-        strike:false,
+      start: "06:00",
+      end: "07:30",
+      strike:false,
     },
     {
       id:2,
       task: "Walking",
       emoji: "💪",
       extra:"",
-
-        start: "06:00",
-        end: "07:30",
-        strike:false,
+      start: "06:00",
+      end: "07:30",
+      strike:false,
     },{
       id:3,
       task: "Cardio",
       emoji: "💪",
       extra:"",
-
-        start: "06:00",
-        end: "07:30",
-        strike:false,
+      start: "06:00",
+      end: "07:30",
+      strike:false,
     }
   ])
-
 
 // useEffect(()=>{
 //   const FetchData = async () => {
